@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<title>2026 2Q 업무 리포트</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg: #080C14;
+  --bg2: #111827;
+  --bg3: #1C2539;
+  --surface: #202D45;
+  --border: rgba(255,255,255,0.12);
+  --teal: #00D4C2;
+  --teal-dim: rgba(0,212,194,0.15);
+  --coral: #FF7B7B;
+  --coral-dim: rgba(255,123,123,0.15);
+  --gold: #FFE066;
+  --gold-dim: rgba(255,224,102,0.15);
+  --violet: #B39DFA;
+  --violet-dim: rgba(179,157,250,0.15);
+  --blue: #74B4FF;
+  --blue-dim: rgba(116,180,255,0.15);
+  --white: #FFFFFF;
+  --muted: #D8E0F5;
+  --muted2: #A0AECF;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Pretendard', -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 60px 80px;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(0,201,184,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 10% 80%, rgba(167,139,250,0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 50% 50%, rgba(13,20,34,0.9) 0%, transparent 100%);
+}
+
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.hero-inner { position: relative; z-index: 2; max-width: 900px; }
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(0,201,184,0.1);
+  border: 1px solid rgba(0,201,184,0.25);
+  border-radius: 100px;
+  padding: 8px 18px;
+  font-size: 12px; font-weight: 600; color: var(--teal);
+  letter-spacing: 0.08em; text-transform: uppercase;
+  margin-bottom: 32px;
+}
+.hero-badge::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--teal);
+  box-shadow: 0 0 8px var(--teal);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+.hero h1 {
+  font-size: clamp(42px, 6vw, 76px);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+}
+.hero h1 em {
+  font-style: normal;
+  background: linear-gradient(90deg, var(--teal), var(--violet));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+.hero-desc {
+  font-size: 19px; color: var(--muted);
+  max-width: 580px; line-height: 1.8;
+  margin-bottom: 56px;
+}
+
+.hero-stats {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(10px);
+  max-width: 100%;
+}
+.stat {
+  padding: 24px 36px;
+  border-right: 1px solid var(--border);
+}
+.stat:last-child { border-right: none; }
+.stat-num {
+  font-size: 32px; font-weight: 900;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.stat-label { font-size: 12px; color: var(--muted); font-weight: 500; }
+
+.scroll-hint {
+  position: absolute; bottom: 40px; left: 60px;
+  display: flex; align-items: center; gap: 10px;
+  font-size: 12px; color: var(--muted); letter-spacing: 0.08em;
+}
+.scroll-line {
+  width: 40px; height: 1px; background: var(--muted2);
+}
+
+/* ── SECTION ── */
+.section { padding: 100px 60px; max-width: 1100px; margin: 0 auto; }
+.section-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--muted);
+  margin-bottom: 16px;
+}
+.section-tag::before {
+  content: ''; width: 20px; height: 1px; background: currentColor;
+}
+.section-title {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 900; letter-spacing: -0.02em;
+  margin-bottom: 60px;
+  line-height: 1.2;
+}
+
+/* ── TIMELINE ── */
+.timeline-wrap {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+  background: var(--border);
+  border-radius: 24px; overflow: hidden;
+}
+
+.tl-month {
+  background: var(--bg2);
+  padding: 36px 32px;
+  position: relative;
+}
+
+.tl-month::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--m-accent);
+}
+
+.tl-month:nth-child(1) { --m-accent: linear-gradient(90deg, var(--gold), #FFA94D); }
+.tl-month:nth-child(2) { --m-accent: linear-gradient(90deg, var(--coral), #FF4D4D); }
+.tl-month:nth-child(3) { --m-accent: linear-gradient(90deg, var(--teal), var(--blue)); }
+
+.tl-month-header {
+  display: flex; align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+.tl-month-name {
+  font-size: 14px; color: var(--muted); font-weight: 600;
+  letter-spacing: 0.06em; margin-bottom: 6px;
+}
+.tl-month-theme {
+  font-size: 26px; font-weight: 800; letter-spacing: -0.02em;
+}
+.tl-intensity {
+  display: flex; flex-direction: column; align-items: flex-end; gap: 3px;
+}
+.tl-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--muted2);
+}
+.tl-dot.on { background: var(--m-color); }
+.tl-month:nth-child(1) .tl-dot.on { background: var(--gold); }
+.tl-month:nth-child(2) .tl-dot.on { background: var(--coral); }
+.tl-month:nth-child(3) .tl-dot.on { background: var(--teal); }
+
+.tl-events { display: flex; flex-direction: column; gap: 10px; }
+.tl-event {
+  display: grid; grid-template-columns: minmax(40px, auto) 1fr; gap: 12px;
+  align-items: baseline;
+}
+.tl-date {
+  font-size: 13px; font-weight: 700; color: var(--muted);
+  letter-spacing: 0.04em; padding-top: 2px; white-space: nowrap;
+}
+.tl-text { font-size: 15px; color: var(--muted); line-height: 1.65; }
+.tl-text strong { color: var(--white); font-weight: 700; }
+
+/* ── TRACKS ── */
+.track-list { display: flex; flex-direction: column; gap: 3px; }
+
+.track {
+  background: var(--bg2);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: border-color .2s;
+}
+.track:hover { border-color: rgba(255,255,255,0.13); }
+
+.track-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 20px; align-items: center;
+  padding: 28px 32px;
+  cursor: default;
+}
+
+.track-num {
+  width: 44px; height: 44px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 900; flex-shrink: 0;
+  background: var(--t-bg);
+  color: var(--t-color);
+}
+.track.t1 { --t-bg: var(--coral-dim); --t-color: var(--coral); --t-line: var(--coral); }
+.track.t2 { --t-bg: var(--blue-dim); --t-color: var(--blue); --t-line: var(--blue); }
+.track.t3 { --t-bg: var(--violet-dim); --t-color: var(--violet); --t-line: var(--violet); }
+.track.t4 { --t-bg: var(--teal-dim); --t-color: var(--teal); --t-line: var(--teal); }
+.track.t5 { --t-bg: var(--gold-dim); --t-color: var(--gold); --t-line: var(--gold); }
+
+.track-meta { }
+.track-label { font-size: 12px; color: var(--muted); font-weight: 600; letter-spacing: 0.06em; margin-bottom: 6px; text-transform: uppercase; }
+.track-name { font-size: 22px; font-weight: 800; letter-spacing: -0.01em; }
+
+.track-badge {
+  font-size: 11px; font-weight: 700; padding: 6px 14px;
+  border-radius: 100px; white-space: nowrap;
+  background: var(--t-bg);
+  color: var(--t-color);
+  border: 1px solid currentColor;
+}
+
+.track-body {
+  padding: 0 32px 36px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  border-top: 1px solid var(--border);
+  padding-top: 28px;
+}
+
+.track-body.full { grid-template-columns: 1fr; }
+
+.track-col-title {
+  font-size: 12px; color: var(--muted); font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.event-list { display: flex; flex-direction: column; gap: 16px; }
+.event-item {
+  display: grid; grid-template-columns: minmax(52px, auto) 1fr; gap: 14px;
+  align-items: baseline;
+}
+.event-date {
+  font-size: 13px; font-weight: 700;
+  color: var(--t-color);
+  white-space: nowrap;
+}
+.event-text { font-size: 15px; color: var(--muted); line-height: 1.65; }
+.event-text strong { color: var(--white); font-weight: 700; }
+
+.note-box {
+  background: var(--bg3);
+  border-left: 4px solid var(--t-line);
+  border-radius: 0 14px 14px 0;
+  padding: 18px 22px;
+  font-size: 15px; color: var(--muted); line-height: 1.75;
+}
+.note-box strong { color: var(--white); font-weight: 700; }
+
+/* ── INSIGHT ── */
+.insight-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.insight {
+  border-radius: 20px; padding: 32px 28px;
+  position: relative; overflow: hidden;
+}
+.insight.bottleneck {
+  background: linear-gradient(135deg, #1A0E0E, #2A1515);
+  border: 1px solid rgba(255,107,107,0.2);
+}
+.insight.win {
+  background: linear-gradient(135deg, #0A1A18, #0D2422);
+  border: 1px solid rgba(0,201,184,0.2);
+}
+.insight-label {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 18px;
+}
+.bottleneck .insight-label { color: var(--coral); }
+.win .insight-label { color: var(--teal); }
+.insight p { font-size: 16px; color: var(--muted); line-height: 1.8; }
+.insight p strong { color: var(--white); font-weight: 700; }
+
+/* ── QUOTE ── */
+.quote-wrap {
+  margin: 80px 0;
+  padding: 60px;
+  background: var(--bg2);
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  position: relative;
+}
+.quote-mark {
+  font-size: 80px; line-height: 1;
+  color: var(--teal); opacity: 0.3;
+  font-family: Georgia, serif;
+  position: absolute; top: 20px; left: 40px;
+}
+.quote-text {
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 700; line-height: 1.65;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  padding-left: 20px;
+}
+.quote-text em {
+  font-style: normal;
+  color: var(--teal);
+}
+
+/* ── HOMEPAGE DISTINCTION ── */
+.distinction {
+  display: grid; grid-template-columns: 1fr auto 1fr; gap: 0;
+  align-items: stretch;
+  margin-bottom: 48px;
+  border-radius: 20px; overflow: hidden;
+  border: 1px solid var(--border);
+}
+.dist-col {
+  padding: 28px 28px;
+  background: var(--bg2);
+}
+.dist-col.new { border-right: none; }
+.dist-col.old { border-left: none; }
+.dist-divider {
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg3);
+  padding: 0 20px;
+  font-size: 18px; color: var(--muted);
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+.dist-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 5px 12px;
+  border-radius: 100px; margin-bottom: 14px;
+}
+.dist-badge.new { background: var(--teal-dim); color: var(--teal); border: 1px solid rgba(0,201,184,0.25); }
+.dist-badge.old { background: var(--violet-dim); color: var(--violet); border: 1px solid rgba(167,139,250,0.25); }
+.dist-col h4 { font-size: 19px; font-weight: 800; margin-bottom: 10px; letter-spacing: -0.01em; }
+.dist-col p { font-size: 15px; color: var(--muted); line-height: 1.7; }
+.dist-col .dist-link {
+  display: inline-block; margin-top: 14px;
+  font-size: 12px; font-weight: 700;
+  color: var(--muted);
+}
+.dist-col.new .dist-link { color: var(--teal); }
+.dist-col.old .dist-link { color: var(--violet); }
+.dist-warning {
+  background: rgba(255,217,61,0.07);
+  border: 1px solid rgba(255,217,61,0.2);
+  border-radius: 14px;
+  padding: 18px 24px;
+  margin-bottom: 32px;
+  display: flex; gap: 14px; align-items: flex-start;
+  font-size: 15px; color: #FFE066; line-height: 1.7;
+}
+.dist-warning-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+
+/* ── DIVIDER ── */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border) 30%, var(--border) 70%, transparent);
+  margin: 0 60px;
+}
+
+/* ── FOOTER ── */
+footer {
+  padding: 60px;
+  text-align: center;
+  font-size: 12px; color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+/* ── RESPONSIVE ── */
+
+@media (max-width: 960px) {
+  .section { padding: 72px 32px; }
+  .hero { padding: 80px 32px 60px; }
+  .divider { margin: 0 32px; }
+  footer { padding: 48px 32px; }
+  .track-body { grid-template-columns: 1fr; gap: 28px; }
+  .insight-wrap { grid-template-columns: 1fr; }
+  .timeline-wrap { grid-template-columns: 1fr 1fr; }
+  .distinction { grid-template-columns: 1fr; }
+  .dist-divider { display: none; }
+  .dist-col.new { border-bottom: 1px solid var(--border); border-right: none; }
+  .dist-col.old { border-left: none; }
+}
+
+@media (max-width: 720px) {
+  .section { padding: 56px 22px; }
+  .hero { padding: 72px 22px 52px; }
+  .hero h1 { font-size: 34px; }
+  .hero-desc { font-size: 16px; }
+  .hero-badge { font-size: 11px; padding: 7px 14px; }
+  .hero-stats { display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
+  .stat { padding: 18px 20px; }
+  .stat:nth-child(odd) { border-right: 1px solid var(--border); }
+  .stat:nth-child(even) { border-right: none; }
+  .stat:nth-child(1),
+  .stat:nth-child(2) { border-bottom: 1px solid var(--border); }
+  .stat-num { font-size: 26px; }
+  .scroll-hint { display: none; }
+
+  .section-title { font-size: 26px; margin-bottom: 32px; }
+
+  .timeline-wrap { grid-template-columns: 1fr; }
+  .tl-month { padding: 26px 20px; }
+  .tl-month-theme { font-size: 21px; }
+  .tl-events { gap: 12px; }
+  .tl-text { font-size: 14px; }
+  .tl-date { font-size: 12px; }
+
+  .track { border-radius: 16px; }
+  .track-header { grid-template-columns: auto 1fr; gap: 14px; padding: 20px 18px; }
+  .track-badge { display: none; }
+  .track-num { width: 38px; height: 38px; font-size: 15px; border-radius: 11px; }
+  .track-name { font-size: 18px; }
+  .track-body { padding: 22px 18px 24px; grid-template-columns: 1fr; gap: 22px; }
+  .event-list { gap: 14px; }
+  .event-item { grid-template-columns: minmax(44px, auto) 1fr; gap: 10px; }
+  .event-text { font-size: 14px; }
+  .event-date { font-size: 12px; }
+  .note-box { font-size: 14px; padding: 16px 18px; }
+  .track-col-title { font-size: 11px; }
+
+  .distinction { grid-template-columns: 1fr; }
+  .dist-divider { display: none; }
+  .dist-col { padding: 22px 20px; }
+  .dist-col.new { border-bottom: 1px solid var(--border); border-right: none; }
+  .dist-col.old { border-left: none; }
+  .dist-col h4 { font-size: 17px; }
+  .dist-col p { font-size: 14px; }
+  .dist-warning { font-size: 14px; padding: 14px 16px; gap: 10px; }
+
+  .quote-wrap { padding: 34px 22px; }
+  .quote-mark { font-size: 52px; top: 8px; left: 14px; }
+  .quote-text { font-size: 17px; padding-left: 8px; }
+
+  .insight-wrap { grid-template-columns: 1fr; }
+  .insight { padding: 26px 22px; border-radius: 16px; }
+  .insight p { font-size: 15px; }
+
+  .divider { margin: 0 22px; }
+  footer { padding: 36px 22px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">강남서연성형외과의원 · 단독 운영 리포트</div>
+    <h1>2026년 2분기,<br><em>네 갈래</em><br>1인 전담 운영의 기록</h1>
+    <p class="hero-desc">
+      4월부터 6월까지 90일간의 캘린더 기록. 홈페이지 제작, 법무 대응, 마케팅, 모델 관리를 단일 담당자 체제로 병렬 소화한 업무 기록입니다.
+    </p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num" style="color:var(--teal)">90</div>
+        <div class="stat-label">운영 일수</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" style="color:var(--coral)">4</div>
+        <div class="stat-label">동시 진행 트랙</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" style="color:var(--gold)">1</div>
+        <div class="stat-label">단독 담당</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" style="color:var(--violet)">+6주</div>
+        <div class="stat-label">홈페이지 지연</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    SCROLL
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TIMELINE -->
+<div class="section">
+  <div class="section-tag">월별 흐름</div>
+  <h2 class="section-title">90일의 궤적</h2>
+
+  <div class="timeline-wrap">
+
+    <!-- 4월 -->
+    <div class="tl-month">
+      <div class="tl-month-header">
+        <div>
+          <div class="tl-month-name">APRIL · 4월</div>
+          <div class="tl-month-theme">기반 다지기</div>
+        </div>
+        <div class="tl-intensity">
+          <div class="tl-dot on"></div>
+          <div class="tl-dot on"></div>
+          <div class="tl-dot on"></div>
+          <div class="tl-dot"></div>
+          <div class="tl-dot"></div>
+        </div>
+      </div>
+      <div class="tl-events">
+        <div class="tl-event">
+          <div class="tl-date">4/14</div>
+          <div class="tl-text"><strong>블** 추정 인물</strong> 발견 — AI 분석 시도 후 한계, 송**로 추정</div>
+        </div>
+        <div class="tl-event">
+          <div class="tl-date">4/15</div>
+          <div class="tl-text">관련 자료 재정리, 댓글 대응</div>
+        </div>
+        <div class="tl-event">
+          <div class="tl-date">4/22~23</div>
+          <div class="tl-text"><strong>프릭스 잘못한 점</strong> 정리 파일 작성, 리얼모델 이** 첫 방문</div>
+        </div>
+        <div class="tl-event">
+          <div class="tl-date">4/23~24</div>
+          <div class="tl-text">세이프닥 카탈로그·해외환자 할인 처리</div>
+        </div>
+        <div class="tl-event">
+          <div class="tl-date">4/26~27</div>
+          <div class="tl-text"><strong>AI 홈페이지 직접 제작 시작</strong> — 매니저 안과 비교 검토 병행</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5월 -->
+    <div class="tl-month">
+      <div class="tl-month-header">
+        <div>
+          <div class="tl-month-name">MAY · 5월</div>
+          <div class="tl-month-theme">총력전</div>
+        </div>
+        <div class="tl-intensity">
+          <div class="tl-dot on"></div>
+          <div class="tl-dot on"></div>
+          <div class="tl-dot on"></div>
+          <div class="tl-dot on"></div>
+          <div class="tl-dot"></div>
+        </div>
+      </div>
+      <div class="tl-events">
+        <div class="tl-event">
+          <div class="tl-date">5/6</div>
+          <div class="tl-text">리얼모델 송** 방문 — 촬영 방향 협의</div>
+        </div>
+        <div class="tl-event">
+          <div class="tl-date">5/11</div>
+          <div class="tl-text">공정위 반박 AI 작업 (프릭스 건)</div>
+        </div>
+        <div class="tl-event">
+          <div class="tl-date">5/16</div>
+          <div class="tl-text">홈페이지 제작 본격 추진 — 레퍼런스·디자인·AI 모델 반복 작업</div>
+        </div>
+        <div class="tl-event">
+          <div class="tl-date">5/27</div>
+          <div class="tl-text">다국어 번역 처리 중단 후 재개</div>
+        </div>
+        <div class="tl-event">
+          <div class="tl-date">5/29~30</div>
+          <div class="tl-text"><strong>파워링크 1000원 과금 오류</strong> 발견 → 70원으로 수정</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6월 -->
+    <div class="tl-month">
+      <div class="tl-month-header">
+        <div>
+          <div class="tl-month-name">JUNE · 6월</div>
+          <div class="tl-month-theme">마감과 완결</div>
+        </div>
+        <div class="tl-intensity">
+          <div class="tl-dot on"></div>
+          <div class="tl-dot on"></div>
+          <div class="tl-dot on"></div>
+          <div class="tl-dot on"></div>
+          <div class="tl-dot on"></div>
+        </div>
+      </div>
+      <div class="tl-events">
+        <div class="tl-event">
+          <div class="tl-date">6/1~</div>
+          <div class="tl-text">분쟁 관련 자료 지속 수집 (장기 추적)</div>
+        </div>
+        <div class="tl-event">
+          <div class="tl-date">6/9</div>
+          <div class="tl-text">기존 홈페이지 자료 손실 발견 + 도메인 연결 시작</div>
+        </div>
+        <div class="tl-event">
+          <div class="tl-date">6/15</div>
+          <div class="tl-text">홈페이지 문의게시판 삭제 → 카카오톡 채널로 통일</div>
+        </div>
+        <div class="tl-event">
+          <div class="tl-date">6/16</div>
+          <div class="tl-text"><strong>네이버 광고 노출 정상화</strong> — 일치검색 전환 완료</div>
+        </div>
+        <div class="tl-event">
+          <div class="tl-date">6월</div>
+          <div class="tl-text"><strong>홈페이지 1차 완성</strong> — 한·중·일·영·인도네시아 5개 언어, 도메인·SEO 완료</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- TRACKS -->
+<div class="section">
+  <div class="section-tag">업무 트랙</div>
+  <h2 class="section-title">네 갈래의 업무</h2>
+
+  <!-- HOMEPAGE DISTINCTION WARNING -->
+  <div class="dist-warning">
+    <div class="dist-warning-icon">⚠</div>
+    <div>이 리포트에서 <strong style="color:#FFD93D">'홈페이지'는 두 가지</strong>가 등장합니다. 아래 구분을 먼저 확인하세요. 혼동하기 쉬운 별개의 사안입니다.</div>
+  </div>
+
+  <div class="distinction">
+    <div class="dist-col new">
+      <div class="dist-badge new">① 신규 홈페이지</div>
+      <h4>AI로 직접 제작 · 1차 완성</h4>
+      <p>프릭스와 무관하게 4월 말부터 직접 제작. 현재 한·중·일·영·인도네시아 5개 언어 홈페이지가 존재하며, 미번역 언어 버전의 정식 번역은 지원금으로 진행 예정.</p>
+      <div class="dist-link">→ 트랙 01에서 다룸</div>
+    </div>
+    <div class="dist-divider">≠</div>
+    <div class="dist-col old">
+      <div class="dist-badge old">② 구 홈페이지 (프릭스)</div>
+      <h4>프릭스가 만들다 방치한 것</h4>
+      <p>외주를 맡겼으나 완성하지 못하고 방치된 기존 홈페이지. 현재 분쟁·법무 대응의 대상이며, ①번 신규 홈페이지와는 완전히 별개의 사안.</p>
+      <div class="dist-link">→ 트랙 02에서 다룸</div>
+    </div>
+  </div>
+
+  <div class="track-list">
+
+    <!-- TRACK 1 -->
+    <div class="track t1">
+      <div class="track-header">
+        <div class="track-num">01</div>
+        <div class="track-meta">
+          <div class="track-label">2분기 최대 비중 · 1차 완성</div>
+          <div class="track-name">홈페이지 제작 (5개 언어)</div>
+        </div>
+        <div class="track-badge">1차 완성</div>
+      </div>
+      <div class="track-body">
+        <div>
+          <div class="track-col-title">주요 진행 사항</div>
+          <div class="event-list">
+            <div class="event-item">
+              <div class="event-date">4/27~</div>
+              <div class="event-text"><strong>AI로 직접 제작 시작.</strong> 매니저 안과 비교 검토 병행</div>
+            </div>
+            <div class="event-item">
+              <div class="event-date">5월</div>
+              <div class="event-text">아이큐·시선성형외과 레퍼런스, 한글 홈페이지 체크, 헤더·이미지 AI 모델 활용, 제미나이로 재시도</div>
+            </div>
+            <div class="event-item">
+              <div class="event-date">5/27</div>
+              <div class="event-text">다국어 번역 처리 중 작업 중단 후 재개</div>
+            </div>
+            <div class="event-item">
+              <div class="event-date">6월</div>
+              <div class="event-text">도메인 연결, 동영상 팝업 크기 조정, 배경 디자인, SEO 작업, 문의게시판 → 카카오톡으로 통일, 404 에러 처리</div>
+            </div>
+            <div class="event-item">
+              <div class="event-date">현재</div>
+              <div class="event-text"><strong>한·중·일·영·인도네시아 5개 언어 홈페이지 1차 완성.</strong> 각 언어 페이지 구조 존재</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="track-col-title">다음 단계</div>
+          <div class="note-box">
+            현재 5개 언어 페이지가 존재하나 미번역 상태. 한국어 원문 기준 중·일·영·인도네시아어 정식 번역·현지화 작업이 다음 단계.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TRACK 2 -->
+    <div class="track t3">
+      <div class="track-header">
+        <div class="track-num">02</div>
+        <div class="track-meta">
+          <div class="track-label">분기 내내 병렬 진행</div>
+          <div class="track-name">분쟁 · 법무 대응</div>
+        </div>
+        <div class="track-badge">장기 추적</div>
+      </div>
+      <div class="track-body">
+        <div>
+          <div class="track-col-title">송** 건</div>
+          <div class="event-list">
+            <div class="event-item">
+              <div class="event-date">4/14</div>
+              <div class="event-text"><strong>블** 추정 인물</strong> 최초 발견. AI 분석에 한계 인식</div>
+            </div>
+            <div class="event-item">
+              <div class="event-date">4/15</div>
+              <div class="event-text">댓글 대응, 자료 재정리</div>
+            </div>
+            <div class="event-item">
+              <div class="event-date">4/24</div>
+              <div class="event-text"><strong>부계(대체 계정) 추정 악성 댓글</strong> 추가 확인</div>
+            </div>
+            <div class="event-item">
+              <div class="event-date">5/9</div>
+              <div class="event-text">관련 게시물 캡처 등 증거자료 보강</div>
+            </div>
+            <div class="event-item">
+              <div class="event-date">6/1~</div>
+              <div class="event-text"><strong>고소 진행</strong> — 이후에도 자료 지속 수집 중, 장기 추적 사안</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="track-col-title">프릭스(웹업체) 건</div>
+          <div class="event-list">
+            <div class="event-item">
+              <div class="event-date">4/22</div>
+              <div class="event-text">프릭스가 방치한 <strong>기존 홈페이지의 잘못된 점</strong> 정리 파일 작성</div>
+            </div>
+            <div class="event-item">
+              <div class="event-date">5/11</div>
+              <div class="event-text"><strong>공정위 반박 자료</strong> AI 활용 작성 완료</div>
+            </div>
+          </div>
+          <div style="margin-top:14px" class="note-box">
+            홈페이지 ①번 트랙(신규 제작)과는 <strong>완전히 별개 사안</strong>. 프릭스가 기존에 만들다 방치한 구 홈페이지에 대한 법적 대응.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TRACK 3 -->
+    <div class="track t4">
+      <div class="track-header">
+        <div class="track-num">03</div>
+        <div class="track-meta">
+          <div class="track-label">분기 전체 상시 운영</div>
+          <div class="track-name">마케팅 운영</div>
+        </div>
+        <div class="track-badge">상시 운영</div>
+      </div>
+      <div class="track-body">
+        <div>
+          <div class="track-col-title">채널 운영</div>
+          <div class="event-list">
+            <div class="event-item">
+              <div class="event-date">매주</div>
+              <div class="event-text"><strong>바이럴 체크</strong> 주 2~3회 — 분기 전체에서 가장 높은 반복 빈도</div>
+            </div>
+            <div class="event-item">
+              <div class="event-date">상시</div>
+              <div class="event-text">블로그, 쓰레드, 인스타, 레딧 다채널 콘텐츠 생산</div>
+            </div>
+            <div class="event-item">
+              <div class="event-date">6/22~23</div>
+              <div class="event-text"><strong>전광판 디자인 변경</strong> — 쀼티비로 전환·설치</div>
+            </div>
+            <div class="event-item">
+              <div class="event-date">6/26</div>
+              <div class="event-text">인스타 광고 구성</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="track-col-title">네이버 광고 개선</div>
+          <div class="event-list">
+            <div class="event-item">
+              <div class="event-date">5/30</div>
+              <div class="event-text"><strong>파워링크 70원 키워드</strong> 발견 → 과금 원인 직접 파악</div>
+            </div>
+            <div class="event-item">
+              <div class="event-date">6/16</div>
+              <div class="event-text"><strong>확장검색 → 일치검색 전환</strong>으로 노출 정상화 완료</div>
+            </div>
+          </div>
+          <div style="margin-top:14px" class="note-box">
+            외부 대행사 없이 <strong>직접 원인 발견 → 해결</strong>까지 완결. 분기 내 가장 명확한 즉각 성과 중 하나.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TRACK 4 -->
+    <div class="track t5">
+      <div class="track-header">
+        <div class="track-num">04</div>
+        <div class="track-meta">
+          <div class="track-label">콘텐츠 공급망</div>
+          <div class="track-name">리얼모델 관리</div>
+        </div>
+        <div class="track-badge">상시 운영</div>
+      </div>
+      <div class="track-body full">
+        <div>
+          <div class="track-col-title">케이스 현황</div>
+          <div class="event-list">
+            <div class="event-item">
+              <div class="event-date">이**</div>
+              <div class="event-text">사진·계약서·대본·촬영 전 과정 관리. <strong>계약서 100만원 추가 수정</strong>까지 직접 진행</div>
+            </div>
+            <div class="event-item">
+              <div class="event-date">송**</div>
+              <div class="event-text">촬영 일정과 사진 수집 반복 재촉. 일정 지연 케이스</div>
+            </div>
+            <div class="event-item">
+              <div class="event-date">박**</div>
+              <div class="event-text">다수 케이스 동시 진행 중 하나. 사진·계약서 관리</div>
+            </div>
+            <div class="event-item">
+              <div class="event-date">기타</div>
+              <div class="event-text">여러 케이스를 동시 병렬 진행 — 콘텐츠 제작의 원재료 공급 역할</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- QUOTE -->
+<div class="section" style="padding-top:60px;padding-bottom:60px">
+  <div class="quote-wrap">
+    <div class="quote-mark">"</div>
+    <div class="quote-text">
+      홈페이지가 완성돼야 모든 채널의 방향이 잡히는데,<br>
+      그 사이에도 분쟁 대응은 <em>계속</em> 동시에 들어왔다.
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- INSIGHTS -->
+<div class="section">
+  <div class="section-tag">분석</div>
+  <h2 class="section-title">2분기 요약</h2>
+
+  <div class="insight-wrap">
+    <div class="insight bottleneck">
+      <div class="insight-label">병목 지점</div>
+      <p>
+        홈페이지 제작이 <strong>5/16 목표 대비 약 6주 지연.</strong> 자료 손실·번역 오류·404 에러 등 기술적 변수가 복합적으로 작용. 2분기 전체 에너지의 가장 큰 비중을 소화한 트랙이며, 현재 1차 완성 단계.
+      </p>
+    </div>
+    <div class="insight win">
+      <div class="insight-label">명확한 성과</div>
+      <p>
+        <strong>네이버 광고 과금 원인</strong>을 외부 도움 없이 직접 파악·수정해 노출 정상화 완료. <strong>프릭스 공정위 반박자료</strong>도 AI를 활용해 작성 완료. 두 트랙 모두 외부 도움 없이 직접 해결한 명확한 아웃풋.
+      </p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  2026년 4월 – 6월 · 캘린더 기록 기반 정리
+</footer>
+
+</body>
+</html>
