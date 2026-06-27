@@ -418,10 +418,10 @@ body {
   letter-spacing: -0.03em;
   line-height: 1;
 }
-.track:nth-child(1) .track-big-num { color: rgba(10,132,255,0.22); }
-.track:nth-child(2) .track-big-num { color: rgba(255,159,10,0.22); }
-.track:nth-child(3) .track-big-num { color: rgba(48,209,88,0.22); }
-.track:nth-child(4) .track-big-num { color: rgba(191,90,242,0.22); }
+.track.t1 .track-big-num { color: rgba(10,132,255,0.22); }
+.track.t2 .track-big-num { color: rgba(255,159,10,0.22); }
+.track.t3 .track-big-num { color: rgba(48,209,88,0.22); }
+.track.t4 .track-big-num { color: rgba(191,90,242,0.22); }
 
 .track-eyebrow {
   font-size: 10px;
@@ -440,10 +440,10 @@ body {
   letter-spacing: 0.02em;
   margin-bottom: 10px;
 }
-.track:nth-child(1) .track-name { color: var(--blue); }
-.track:nth-child(2) .track-name { color: var(--orange); }
-.track:nth-child(3) .track-name { color: var(--green); }
-.track:nth-child(4) .track-name { color: var(--purple); }
+.track.t1 .track-name { color: var(--blue); }
+.track.t2 .track-name { color: var(--orange); }
+.track.t3 .track-name { color: var(--green); }
+.track.t4 .track-name { color: var(--purple); }
 
 .tag-pill {
   display: inline-block;
@@ -455,10 +455,10 @@ body {
   border-radius: 2px;
   border: 1px solid;
 }
-.track:nth-child(1) .tag-pill { border-color: rgba(10,132,255,0.5); color: var(--blue); background: var(--blue-d); }
-.track:nth-child(2) .tag-pill { border-color: rgba(255,159,10,0.5); color: var(--orange); background: var(--orange-d); }
-.track:nth-child(3) .tag-pill { border-color: rgba(48,209,88,0.5); color: var(--green); background: var(--green-d); }
-.track:nth-child(4) .tag-pill { border-color: rgba(191,90,242,0.5); color: var(--purple); background: var(--purple-d); }
+.track.t1 .tag-pill { border-color: rgba(10,132,255,0.5); color: var(--blue); background: var(--blue-d); }
+.track.t2 .tag-pill { border-color: rgba(255,159,10,0.5); color: var(--orange); background: var(--orange-d); }
+.track.t3 .tag-pill { border-color: rgba(48,209,88,0.5); color: var(--green); background: var(--green-d); }
+.track.t4 .tag-pill { border-color: rgba(191,90,242,0.5); color: var(--purple); background: var(--purple-d); }
 
 .track-body { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .track-body.single { grid-template-columns: 1fr; }
@@ -491,10 +491,10 @@ body {
   letter-spacing: 0.04em;
   padding-top: 1px;
 }
-.track:nth-child(1) .ev-d { color: rgba(10,132,255,0.75); }
-.track:nth-child(2) .ev-d { color: rgba(255,159,10,0.75); }
-.track:nth-child(3) .ev-d { color: rgba(48,209,88,0.75); }
-.track:nth-child(4) .ev-d { color: rgba(191,90,242,0.75); }
+.track.t1 .ev-d { color: rgba(10,132,255,0.75); }
+.track.t2 .ev-d { color: rgba(255,159,10,0.75); }
+.track.t3 .ev-d { color: rgba(48,209,88,0.75); }
+.track.t4 .ev-d { color: rgba(191,90,242,0.75); }
 
 .ev-t { font-size: 13px; color: var(--w60); line-height: 1.55; }
 .ev-t b { color: var(--w); font-weight: 600; }
@@ -509,10 +509,10 @@ body {
   border-left: 2px solid;
 }
 .note-box b { color: var(--w); }
-.track:nth-child(1) .note-box { border-left-color: var(--blue); background: var(--blue-d); }
-.track:nth-child(2) .note-box { border-left-color: var(--orange); background: var(--orange-d); }
-.track:nth-child(3) .note-box { border-left-color: var(--green); background: var(--green-d); }
-.track:nth-child(4) .note-box { border-left-color: var(--purple); background: var(--purple-d); }
+.track.t1 .note-box { border-left-color: var(--blue); background: var(--blue-d); }
+.track.t2 .note-box { border-left-color: var(--orange); background: var(--orange-d); }
+.track.t3 .note-box { border-left-color: var(--green); background: var(--green-d); }
+.track.t4 .note-box { border-left-color: var(--purple); background: var(--purple-d); }
 
 /* ── QUOTE ── */
 .quote-section {
@@ -792,7 +792,7 @@ footer {
   </div>
 
   <!-- Track 01 -->
-  <div class="track">
+  <div class="track t1">
     <div class="track-top">
       <div class="track-big-num">01</div>
       <div class="track-meta">
@@ -820,7 +820,7 @@ footer {
   </div>
 
   <!-- Track 02 -->
-  <div class="track">
+  <div class="track t2">
     <div class="track-top">
       <div class="track-big-num">02</div>
       <div class="track-meta">
@@ -852,7 +852,7 @@ footer {
   </div>
 
   <!-- Track 03 -->
-  <div class="track">
+  <div class="track t3">
     <div class="track-top">
       <div class="track-big-num">03</div>
       <div class="track-meta">
@@ -883,7 +883,7 @@ footer {
   </div>
 
   <!-- Track 04 -->
-  <div class="track">
+  <div class="track t4">
     <div class="track-top">
       <div class="track-big-num">04</div>
       <div class="track-meta">
