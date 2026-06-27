@@ -38,7 +38,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  background: var(--bg);
+  background: #1A1A1A;
   color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'SF Pro Display', 'SF Pro Text', sans-serif;
   font-size: 16px;
@@ -47,13 +47,49 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* ── MAC WINDOW CHROME ── */
+.mac-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 44px;
+  background: rgba(40,40,40,0.88);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  gap: 8px;
+  z-index: 1000;
+  user-select: none;
+}
+
+.mac-btn {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.mac-btn.red    { background: #FF5F57; box-shadow: 0 0 0 0.5px rgba(0,0,0,0.18); }
+.mac-btn.yellow { background: #FFBD2E; box-shadow: 0 0 0 0.5px rgba(0,0,0,0.18); }
+.mac-btn.green  { background: #28CA42; box-shadow: 0 0 0 0.5px rgba(0,0,0,0.18); }
+
+.mac-title {
+  position: absolute;
+  left: 50%; transform: translateX(-50%);
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
 /* ── HERO ── */
 .hero {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 120px 80px 100px;
+  padding: 144px 80px 100px;
   position: relative;
   overflow: hidden;
 }
@@ -578,6 +614,14 @@ footer {
 </style>
 </head>
 <body>
+
+<!-- MAC WINDOW BAR -->
+<div class="mac-bar">
+  <div class="mac-btn red"></div>
+  <div class="mac-btn yellow"></div>
+  <div class="mac-btn green"></div>
+  <div class="mac-title">2026 2Q 업무 리포트 — 강남서연성형외과의원</div>
+</div>
 
 <!-- HERO -->
 <section class="hero">
