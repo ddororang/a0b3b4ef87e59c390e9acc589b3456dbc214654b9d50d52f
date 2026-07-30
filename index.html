@@ -19,9 +19,9 @@
   --mint:    #A8D4C4;
   --peach:   #F5C8A0;
   --gold:    #D4B896;
-  --plum:    #3D2A3E;
-  --plum2:   #7A5C7E;
-  --plum3:   #B090B4;
+  --plum:    #2A1A2E;
+  --plum2:   #4A3050;
+  --plum3:   #7A5C80;
   --plum4:   #EAD8EE;
 
   --rose-d:  rgba(232,160,180,0.14);
@@ -44,8 +44,8 @@ body {
     radial-gradient(ellipse 40% 30% at 50% 50%, rgba(168,212,196,0.06) 0%, transparent 60%);
   color: var(--plum);
   font-family: 'Nanum Myeongjo', serif;
-  font-size: 14px;
-  line-height: 1.8;
+  font-size: 15px;
+  line-height: 1.85;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
@@ -106,11 +106,8 @@ body {
 .hero {
   padding: 72px 60px 64px;
   border-bottom: 1px solid var(--plum4);
-  display: grid;
-  grid-template-columns: 1fr 260px;
-  gap: 48px;
-  align-items: center;
   position: relative; z-index: 1;
+  max-width: 780px;
 }
 .hero-overline {
   font-family: 'Cinzel', serif;
@@ -135,56 +132,10 @@ body {
   background-clip: text;
 }
 .hero-sub {
-  font-size: 14px; color: var(--plum2);
-  max-width: 480px; line-height: 2.0;
+  font-size: 15px; color: var(--plum2);
+  max-width: 560px; line-height: 2.0;
 }
 
-/* ── AVATAR ── */
-.hero-avatar-wrap {
-  display: flex; flex-direction: column;
-  align-items: center; gap: 14px;
-  position: relative;
-}
-.avatar-frame {
-  width: 196px; height: 196px; border-radius: 50%;
-  background: linear-gradient(135deg,
-    rgba(232,160,180,0.3) 0%, rgba(201,168,224,0.3) 50%, rgba(168,212,196,0.3) 100%);
-  padding: 2px; position: relative;
-}
-.avatar-frame::before {
-  content: ''; position: absolute; inset: -6px; border-radius: 50%;
-  border: 1px solid rgba(232,160,180,0.35);
-  animation: halo 5s ease-in-out infinite;
-}
-.avatar-frame::after {
-  content: ''; position: absolute; inset: -13px; border-radius: 50%;
-  border: 1px dashed rgba(201,168,224,0.22);
-  animation: halo 5s ease-in-out infinite reverse;
-}
-@keyframes halo {
-  0%,100% { opacity: 0.6; transform: rotate(0deg); }
-  50%      { opacity: 1; transform: rotate(180deg); }
-}
-.avatar-inner {
-  width: 100%; height: 100%; border-radius: 50%;
-  background: linear-gradient(160deg, #FFF5F9 0%, #F8EEFF 100%);
-  display: flex; align-items: center; justify-content: center;
-  overflow: hidden;
-}
-.shoujo-avatar { width: 128px; height: 148px; }
-.avatar-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 12px; font-weight: 500; font-style: italic;
-  color: var(--plum2); text-align: center; line-height: 1.9;
-}
-.sparkle {
-  position: absolute; animation: sp 2.8s ease-in-out infinite;
-  pointer-events: none;
-}
-@keyframes sp {
-  0%,100% { opacity: 0.3; transform: scale(0.8) rotate(0deg); }
-  50%      { opacity: 0.9; transform: scale(1.25) rotate(22deg); }
-}
 
 /* ── ORNAMENT ── */
 .ornament {
@@ -479,8 +430,6 @@ footer {
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   .nav, .hero, .wrap, footer, .quote-section { padding-left: 28px; padding-right: 28px; }
-  .hero { grid-template-columns: 1fr; }
-  .hero-avatar-wrap { display: none; }
   .stats { grid-template-columns: repeat(2,1fr); }
   .tl-cols { grid-template-columns: 1fr; }
   .track-body { grid-template-columns: 1fr; }
@@ -537,73 +486,6 @@ footer {
     </div>
   </div>
 
-  <div class="hero-avatar-wrap">
-    <div class="avatar-frame">
-      <div class="avatar-inner">
-        <svg class="shoujo-avatar" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
-          <!-- Hair back layers -->
-          <ellipse cx="22" cy="66" rx="9" ry="32" fill="#E8A0B4" opacity="0.75"/>
-          <ellipse cx="78" cy="66" rx="9" ry="32" fill="#E8A0B4" opacity="0.75"/>
-          <!-- Head -->
-          <ellipse cx="50" cy="45" rx="25" ry="27" fill="#FFE8D8"/>
-          <!-- Hair top -->
-          <path d="M25 36 Q28 12 50 16 Q72 12 75 36 Q68 22 50 24 Q32 22 25 36Z" fill="#E8A0B4"/>
-          <path d="M25 36 Q21 28 26 20 Q30 14 36 13" stroke="#E8A0B4" stroke-width="6" fill="none" stroke-linecap="round"/>
-          <path d="M75 36 Q79 28 74 20 Q70 14 64 13" stroke="#E8A0B4" stroke-width="6" fill="none" stroke-linecap="round"/>
-          <!-- Flower crown -->
-          <circle cx="35" cy="18" r="4" fill="#C9A8E0" opacity="0.9"/>
-          <circle cx="50" cy="14" r="4.5" fill="#E8A0B4" opacity="0.9"/>
-          <circle cx="65" cy="18" r="4" fill="#A8D4C4" opacity="0.9"/>
-          <circle cx="35" cy="18" r="2" fill="white" opacity="0.7"/>
-          <circle cx="50" cy="14" r="2.2" fill="white" opacity="0.7"/>
-          <circle cx="65" cy="18" r="2" fill="white" opacity="0.7"/>
-          <!-- Blush -->
-          <ellipse cx="30" cy="51" rx="7" ry="4" fill="#FFB3C6" opacity="0.38"/>
-          <ellipse cx="70" cy="51" rx="7" ry="4" fill="#FFB3C6" opacity="0.38"/>
-          <!-- Big shoujo eyes -->
-          <ellipse cx="38" cy="43" rx="8" ry="10" fill="#C9A8E0"/>
-          <ellipse cx="62" cy="43" rx="8" ry="10" fill="#C9A8E0"/>
-          <ellipse cx="38" cy="44" rx="6" ry="7.5" fill="#3D2A3E"/>
-          <ellipse cx="62" cy="44" rx="6" ry="7.5" fill="#3D2A3E"/>
-          <ellipse cx="36" cy="41" rx="2.5" ry="3" fill="white" opacity="0.9"/>
-          <ellipse cx="60" cy="41" rx="2.5" ry="3" fill="white" opacity="0.9"/>
-          <circle cx="41" cy="47" r="1.2" fill="white" opacity="0.5"/>
-          <circle cx="65" cy="47" r="1.2" fill="white" opacity="0.5"/>
-          <!-- Eyelashes -->
-          <path d="M30 37 Q32 35 34 36" stroke="#3D2A3E" stroke-width="1.2" fill="none"/>
-          <path d="M42 36 Q44 35 46 37" stroke="#3D2A3E" stroke-width="1.2" fill="none"/>
-          <path d="M54 36 Q56 35 58 36" stroke="#3D2A3E" stroke-width="1.2" fill="none"/>
-          <path d="M66 36 Q68 35 70 37" stroke="#3D2A3E" stroke-width="1.2" fill="none"/>
-          <!-- Nose -->
-          <path d="M48 55 Q50 58 52 55" stroke="#D4A090" stroke-width="1" fill="none" stroke-linecap="round"/>
-          <!-- Sweet smile -->
-          <path d="M42 62 Q50 69 58 62" stroke="#E8A0B4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          <!-- Elegant dress body -->
-          <path d="M35 71 Q32 82 28 112 L72 112 Q68 82 65 71Z" fill="#C9A8E0" opacity="0.85"/>
-          <!-- Lace collar -->
-          <path d="M35 71 Q50 78 65 71 Q60 84 50 82 Q40 84 35 71Z" fill="#EDD5F5"/>
-          <!-- Bow -->
-          <path d="M44 76 Q50 72 56 76 Q50 80 44 76Z" fill="#E8A0B4"/>
-          <circle cx="50" cy="76" r="2" fill="#C9A8E0"/>
-          <!-- Arms -->
-          <path d="M35 73 Q22 84 20 97" stroke="#C9A8E0" stroke-width="9" fill="none" stroke-linecap="round"/>
-          <path d="M65 73 Q78 84 80 97" stroke="#C9A8E0" stroke-width="9" fill="none" stroke-linecap="round"/>
-          <!-- Hands -->
-          <ellipse cx="19" cy="97" rx="7" ry="5" fill="#FFE8D8"/>
-          <ellipse cx="81" cy="97" rx="7" ry="5" fill="#FFE8D8"/>
-          <!-- Skirt -->
-          <path d="M28 112 Q20 127 26 130 L74 130 Q80 127 72 112Z" fill="#E8A0B4" opacity="0.75"/>
-          <!-- Skirt lace lines -->
-          <path d="M30 117 Q50 122 70 117" stroke="white" stroke-width="0.8" fill="none" opacity="0.5"/>
-          <path d="M29 123 Q50 129 71 123" stroke="white" stroke-width="0.8" fill="none" opacity="0.35"/>
-        </svg>
-      </div>
-    </div>
-    <div class="avatar-name">✦ 단독 담당자 ✦<br>2026. 2Q</div>
-    <span class="sparkle" style="top:-8px;right:10px;color:#E8A0B4;font-size:16px;animation-delay:0s">✦</span>
-    <span class="sparkle" style="top:42px;left:-14px;color:#C9A8E0;font-size:12px;animation-delay:0.9s">✿</span>
-    <span class="sparkle" style="bottom:32px;right:-10px;color:#A8D4C4;font-size:14px;animation-delay:0.4s">❀</span>
-  </div>
 </section>
 
 <!-- STATS -->
